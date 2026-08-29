@@ -1,0 +1,40 @@
+{
+  "formatVersion": 1,
+  "id": "acme-pdf-tools",
+  "name": "Acme PDF Tools",
+  "version": "1.2.0",
+  "author": "Automation OS",
+  "description": "Merge and split PDF files -- worked example (sibling helpers, private deps/, settings, a PDF Inspector page).",
+  "minAppVersion": "0.9.0",
+  "nodeModules": ["nodes/merge_pdf.py", "nodes/split_pdf.py"],
+  "pipDependencies": ["pypdf==4.2.0"],
+  "settings": [
+    {
+      "key": "defaultOutputDir",
+      "label": "Default Output Folder",
+      "type": "text",
+      "placeholder": "C:\\docs\\out",
+      "hint": "Used when a node's output path/folder field is left blank."
+    }
+  ],
+  "actions": [
+    {
+      "name": "inspect-view",
+      "handler": "actions/inspect.py",
+      "description": "Returns the PDF Inspector view spec"
+    },
+    {
+      "name": "inspect",
+      "handler": "actions/inspect.py",
+      "description": "Inspect a PDF path and return an updated view spec"
+    }
+  ],
+  "pages": [
+    {
+      "id": "inspector",
+      "label": "PDF Inspector",
+      "icon": "FileSearch",
+      "view": "inspect-view"
+    }
+  ]
+}
